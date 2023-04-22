@@ -7,5 +7,5 @@ from mail.views import send_email,readmail
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('send_email/',send_email,name='send_email'),
-    path('read/',readmail(),name='readmail'),
+    path('read/',readmail,name='readmail'),
 ]

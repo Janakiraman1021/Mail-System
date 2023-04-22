@@ -27,12 +27,13 @@ def send_email(request):
 
     return render(request,'sender_email.html',{'form':form})
 
-def readmail():
-    connection = get_connection(host='mail.google.com', port = 587 , username = 'janakiramankeerthivelan21@gmail.com' , password = 'alishksxhsjjdcnv')
-    connection.open()
+def readmail(request):
+    if request.method == 'POST' or request.method == 'GET':
+        connection = get_connection(host='mail.google.com', port = 587 , username = 'janakiramankeerthivelan21@gmail.com' , password = 'alishksxhsjjdcnv')
+        connection.open()
 
-    inbox = connection.folder('INBOX')
-    message = inbox[-1]
+        inbox = connection.folder('INBOX')
+        message = inbox[-1]
 
-    print("subject : " , message.subject)
-    print("Body : " , message.body)
+        print("subject : " , message.subject)
+        print("Body : " , message.body)
