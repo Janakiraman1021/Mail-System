@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Email</title>
+    <style>
+        body {
+            font-family: Lucida Calligraphy;
+            background: linear-gradient(to bottom, #796496, #294be2);
+            background-size: cover;
+            background-attachment: fixed;
+            color: #000000;
+        }
+
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-top: 50px;
+            text-shadow: 2px 2px 4px #000000;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.7);
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #cb524b;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 2px 2px 4px #000000;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ff6e6c;
+            transform: translateY(-2px);
+        }
+
+        .errorlist {
+            color: #ff0000;
+            margin-bottom: 20px;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+            20% {
+                transform: translateX(-10px);
+            }
+            40% {
+                transform: translateX(10px);
+            }
+            60% {
+                transform: translateX(-10px);
+            }
+            80% {
+                transform: translateX(10px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Send Email</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="{{ form.email_address.id_for_label }}">Email address:</label>
+        {{ form.email_address }}
+        <br>
+        <label for="{{ form.subject.id_for_label }}">Subject:</label>
+        {{ form.subject }}
+        <br>
+    
+        <label for="{{ form.body.id_for_label }}">Body:</label>
+        {{ form.body }}
+        <br>
+
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        // Additional JavaScript code can be added here if needed
+    </script>
+</body>
+</html>
