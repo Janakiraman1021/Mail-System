@@ -14,6 +14,9 @@ from email.message import EmailMessage
 from django.core.mail.backends.smtp import EmailBackend
 import speech_recognition as sr
 import pyttsx3
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from .forms import LoginForm
 
 # Initialize the speech recognition engine
 r = sr.Recognizer()
@@ -92,3 +95,25 @@ def automate_with_voice(request):
                 print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
     return render(request, 'automate_with_voice.html')
+
+def main(request):
+    engine.say("You Can Start Telling Your E-Mail Id NOw")
+    if request.method == 'POST' or  request.method == 'GET':
+        return render(request,'main.html')
+
+def login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            # Process the form data
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            # Do something with the data (e.g., store in the database)
+
+            # Redirect to a success page
+            return HttpResponseRedirect('/success/')
+    else:
+        form = LoginForm()
+
+    return render(request, 'login.html', {'form': form})
+ 
