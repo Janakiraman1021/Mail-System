@@ -1,46 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        /* Set some basic styles for the body */
-body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 
-/* Style the page title */
-h1 {
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    font-size: 2em;
-    font-weight: bold;
-}
-
-/* Style the email list */
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-/* Style each email in the list */
-li {
-    border: 1px solid #ccc;
-    margin-bottom: 1em;
-    padding: 1em;
-    background-color: #f9f9f9;
-}
-
-/* Style the link to the email in each list item */
-a {
-    color: #1e90ff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-    </style>
     <meta charset="UTF-8">
     <title>{% block title %}My Website{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,36 +15,8 @@ a:hover {
     {% endblock %}
 
     {% block scripts %}
-    <script>
-        // Get the list of email links
-const emailLinks = document.querySelectorAll('.email-link');
+    <script src="{% static 'js/base.js' %}"></script>
 
-// Add a click event listener to each email link
-emailLinks.forEach(emailLink => {
-  emailLink.addEventListener('click', event => {
-    // Prevent the default link behavior
-    event.preventDefault();
-
-    // Get the href of the clicked email link
-    const href = emailLink.getAttribute('href');
-
-    // Use fetch to get the email content from the server
-    fetch(href)
-      .then(response => response.text())
-      .then(emailContent => {
-        // Create a new div to display the email content
-        const emailDiv = document.createElement('div');
-        emailDiv.innerHTML = emailContent;
-
-        // Replace the email link with the email content
-        emailLink.parentNode.replaceChild(emailDiv, emailLink);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  });
-});
-    </script>
     {% endblock %}
 </body>
 </html>

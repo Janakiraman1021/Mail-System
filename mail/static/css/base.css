@@ -1,0 +1,37 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the page title */
+h1 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Style the email list */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Style each email in the list */
+li {
+    border: 1px solid #ccc;
+    margin-bottom: 1em;
+    padding: 1em;
+    background-color: #f9f9f9;
+}
+
+/* Style the link to the email in each list item */
+a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

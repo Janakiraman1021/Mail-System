@@ -3,111 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Send Email</title>
-    <style>
-        body {
-            font-family: Lucida Calligraphy;
-            background: linear-gradient(to bottom, #796496, #294be2);
-            background-size: cover;
-            background-attachment: fixed;
-            color: #000000;
-        }
 
-        h1 {
-            font-size: 36px;
-            text-align: center;
-            margin-top: 50px;
-            text-shadow: 2px 2px 4px #000000;
-            animation: slideIn 1s ease-in-out;
-        }
+    <!-- Load the static template tag -->
+    {% load static %}
 
-        form {
-            background-color: rgba(255, 255, 255, 0.7);
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 1s ease-in-out;
-        }
+    <!-- Link the CSS file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        button[type="submit"] {
-            background-color: #cb524b;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            font-weight: bold;
-            margin-top: 20px;
-            box-shadow: 2px 2px 4px #000000;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #ff6e6c;
-            transform: translateY(-2px);
-        }
-
-        .errorlist {
-            color: #ff0000;
-            margin-bottom: 20px;
-            animation: shake 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            0% {
-                transform: translateY(-100px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes shake {
-            0% {
-                transform: translateX(0);
-            }
-            20% {
-                transform: translateX(-10px);
-            }
-            40% {
-                transform: translateX(10px);
-            }
-            60% {
-                transform: translateX(-10px);
-            }
-            80% {
-                transform: translateX(10px);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-    </style>
 </head>
 <body>
     <h1>Send Email</h1>
