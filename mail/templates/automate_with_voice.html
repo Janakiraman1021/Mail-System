@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voice Automation</title>
+    <title>Automate with Voice</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/automatemail.css' %}">
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css/automatemail.css' %}">  
 </head>
 <body>
-    <h1>Voice Automation</h1>
-    <form method="post">
+    <h1>Automate with Voice</h1>
+    <form method="POST">
         {% csrf_token %}
-        <button type="submit">Start Listening</button>
+        <button type="submit">Start Voice Recognition</button>
     </form>
+
+    {% if speech_text %}
+        <h2>Recognized Speech:</h2>
+        <p>{{ speech_text }}</p>
+    {% endif %}
 </body>
 </html>
+
+
+  

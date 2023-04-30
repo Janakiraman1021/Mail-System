@@ -1,0 +1,48 @@
+    /* Add basic styles to the HTML elements */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #eaaeae;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #cc2323;
+        margin-bottom: 1rem;
+        animation: bounce 1s ease-in-out infinite;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        color: #e61717;
+        margin-bottom: 0.5rem;
+        animation: rotateColors 4s linear infinite;
+    }
+
+    p {
+        font-size: 1.5rem;
+        color: #7e2727;
+        line-height: 1.5;
+        animation: fade 2s alternate infinite;
+    }
+
+    /* Animation for h1 */
+    @keyframes bounce {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
+
+    /* Animation for h2 */
+    @keyframes rotateColors {
+        0% { color: #e61717; }
+        25% { color: #17e6af; }
+        50% { color: #17afe6; }
+        75% { color: #176be6; }
+        100% { color: #e61717; }
+    }
+
+    /* Animation for p */
+    @keyframes fade {
+        0% { opacity: 1; }
+        100% { opacity: 0.4; }
+    }

@@ -79,7 +79,15 @@ def read_email(request):
 
 
 def automate_with_voice(request):
+    text = ''
+    
     if request.method == 'POST':
+        # Initialize the speech recognition engine
+        r = sr.Recognizer()
+
+        # Initialize the text-to-speech engine
+        engine = pyttsx3.init()
+
         with sr.Microphone() as source:
             print("Listening...")
             audio = r.listen(source)
@@ -94,7 +102,9 @@ def automate_with_voice(request):
             except sr.RequestError as e:
                 print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
-    return render(request, 'automate_with_voice.html')
+    return render(request, 'automate_with_voice.html', {'speech_text': text})
+
+
 
 def main(request):
     engine.say("You Can Start Telling Your E-Mail Id NOw")

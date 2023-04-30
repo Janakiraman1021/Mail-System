@@ -1,46 +1,42 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login Form</title>
-  {% load static %}
+  <title>User Registration and Login</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-
+  <link rel="stylesheet" type="tex/css" href="{% static 'css/login_ani.css' %}">
 </head>
 <body>
   <div class="container">
-    <h2>Login Form</h2>
-    <form id="loginForm">
+    <h1>User Registration and Login</h1>
+    <div class="button-container">
+      <button id="newUserButton">New User</button>
+      <button id="loginButton">Login</button>
+    </div>
+    <form id="registrationForm" class="hidden">
+      <label for="username">Username:</label>
+      <input type="text" id="username" required>
+
       <label for="email">Email:</label>
       <input type="email" id="email" required>
-
-      <label for="name">Name:</label>
-      <input type="text" id="name" required>
 
       <label for="password">Password:</label>
       <input type="password" id="password" required>
 
-      <label for="mobile">Mobile Number:</label>
-      <input type="text" id="mobile" required>
+      <input type="submit" value="Register">
+    </form>
+    <form id="loginForm" class="hidden">
+      <label for="loginUsername">Username:</label>
+      <input type="text" id="loginUsername" required>
 
-      <button type="submit">Login</button>
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" required>
+
+      <input type="submit" value="Login">
     </form>
   </div>
 
-  <script>
-    // JavaScript code
-    document.getElementById("loginForm").addEventListener("submit", function (e) {
-      e.preventDefault(); // Prevent form submission
-
-      // Retrieve input values
-      var email = document.getElementById("email").value;
-      var name = document.getElementById("name").value;
-      var password = document.getElementById("password").value;
-      var mobile = document.getElementById("mobile").value;
-
-      // Send the data to the server (not implemented here)
-      console.log("Email:", email);
-      console.log("Password:", password);
-    });
-  </script>
+  <script src="{% static 'js/login.js' %}"></script>
 </body>
 </html>
